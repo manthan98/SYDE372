@@ -1,6 +1,5 @@
 %% CASE 1 %%
 
-close all;
 rng(4);
 
 % Class A
@@ -66,11 +65,11 @@ MED1 = MED(X1, Y1, mu_A, mu_B);
 contour(X1, Y1, MED1, [0, 0], 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 % GED case
-GED1 = GED(X1, Y1, mu_A, sigma_A, mu_B, sigma_B);
+GED1 = GED(X1, Y1, mu_A, sigma_A,);
 contour(X1, Y1, GED1, [0, 0], 'Color', 'green', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 % MAP Case
-MAP1 = MAP(X1, Y1, mu_A, sigma_A, 200, mu_B, sigma_B, 200);
+MAP1 = MAP(mu_A, mu_B, sigma_A, sigma_B, 200, 200, X1, Y1);
 contour(X1, Y1, MAP1, [0, 0], 'Color', 'cyan', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 %% CASE 2 %%
@@ -124,13 +123,11 @@ y2 = min([z_C(:,2);z_D(:,2);z_E(:,2)])-1:dx:max([z_C(:,2);z_D(:,2);z_E(:,2)])+1;
 
 [X2, Y2] = meshgrid(x2, y2);
 
-% MED case
 MED2 = MED(X2, Y2, mu_C, mu_D, mu_E);
-contour(X2, Y2, MED2, 'Color', 'green', 'LineWidth', 2, 'HandleVisibility', 'off');
+GED2 = GED(X2, Y2, mu_C, sigma_C, mu_D, sigma_D, mu_E, sigma_E)
 
-% GED case
-GED2 = GED(X2, Y2, mu_C, sigma_C, mu_D, sigma_D, mu_E, sigma_E);
-contour(X2, Y2, GED2, 'Color', 'cyan', 'LineWidth', 2, 'HandleVisibility', 'off');
+contour(X2, Y2, MED2, 'Color', 'magenta', 'LineWidth', 1, 'HandleVisibility', 'off');
+contour(X2, Y2, 
 
 hold off;
 
