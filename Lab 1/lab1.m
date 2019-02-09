@@ -71,14 +71,17 @@ GED1 = GED(X1, Y1, mu_A, sigma_A, mu_B, sigma_B);
 
 % MAP Case
 MAP1 = MAP(X1, Y1, mu_A, sigma_A, 200, mu_B, sigma_B, 200);
-% contour(X1, Y1, MAP1, [0, 0], 'Color', 'cyan', 'LineWidth', 2);
+%contour(X1, Y1, MAP1, [0, 0], 'Color', 'cyan', 'LineWidth', 2);
 
 % NN Case
 NN1 = NN(X1, Y1, z_A, z_B);
-% contour(X1, Y1, NN1, [0, 0], 'Color', 'cyan', 'LineWidth', 2);
+%contour(X1, Y1, NN1, [0, 0], 'Color', 'cyan', 'LineWidth', 2);
+
+% KNN case
+KNN1 = KNN(X1, Y1, 5, z_A, z_B);
+contour(X1, Y1, KNN1, [0,0], 'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 %% CASE 2 %%
-
 figure;
 xlabel('x_1');
 ylabel('x_2');
@@ -143,8 +146,11 @@ MAP2 = MAP(X2, Y2, mu_C, sigma_C, 100, mu_D, sigma_D, 200, mu_E, sigma_E, 150);
 % NN case
 NN2 = NN(X2, Y2, z_C, z_D, z_E);
 % contour(X2, Y2, NN2, 'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
-hold off;
 
+% KNN case
+KNN2 = KNN(X2, Y2, 3, z_C, z_D, z_E);
+contour(X2, Y2, KNN2,'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
+hold off;
 
 
 
