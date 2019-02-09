@@ -63,7 +63,7 @@ y = min([z_A(:,2);z_B(:,2)])-1:dx:max([z_A(:,2);z_B(:,2)])+1;
 
 % MED case
 MED1 = MED(X1, Y1, mu_A, mu_B);
-contour(X1, Y1, MED1, [0, 0], 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibility', 'off');
+% contour(X1, Y1, MED1, [0, 0], 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 % GED case
 GED1 = GED(X1, Y1, mu_A, sigma_A, mu_B, sigma_B);
@@ -72,6 +72,10 @@ GED1 = GED(X1, Y1, mu_A, sigma_A, mu_B, sigma_B);
 % MAP Case
 MAP1 = MAP(X1, Y1, mu_A, sigma_A, 200, mu_B, sigma_B, 200);
 % contour(X1, Y1, MAP1, [0, 0], 'Color', 'cyan', 'LineWidth', 2);
+
+% NN Case
+NN1 = NN(X1, Y1, z_A, z_B);
+% contour(X1, Y1, NN1, [0, 0], 'Color', 'cyan', 'LineWidth', 2);
 
 %% CASE 2 %%
 
@@ -134,8 +138,11 @@ GED2 = GED(X2, Y2, mu_C, sigma_C, mu_D, sigma_D, mu_E, sigma_E);
 
 % MAP case
 MAP2 = MAP(X2, Y2, mu_C, sigma_C, 100, mu_D, sigma_D, 200, mu_E, sigma_E, 150);
-contour(X2, Y2, MAP2, 'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
+% contour(X2, Y2, MAP2, 'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
 
+% NN case
+NN2 = NN(X2, Y2, z_C, z_D, z_E);
+% contour(X2, Y2, NN2, 'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
 hold off;
 
 
