@@ -67,11 +67,11 @@ contour(X1, Y1, MED1, [0, 0], 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibil
 
 % GED case
 GED1 = GED(X1, Y1, mu_A, sigma_A, mu_B, sigma_B);
-contour(X1, Y1, GED1, [0, 0], 'Color', 'green', 'LineWidth', 2, 'HandleVisibility', 'off');
+% contour(X1, Y1, GED1, [0, 0], 'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 % MAP Case
 MAP1 = MAP(X1, Y1, mu_A, sigma_A, 200, mu_B, sigma_B, 200);
-contour(X1, Y1, MAP1, [0, 0], 'Color', 'cyan', 'LineWidth', 2, 'HandleVisibility', 'off');
+% contour(X1, Y1, MAP1, [0, 0], 'Color', 'cyan', 'LineWidth', 2);
 
 %% CASE 2 %%
 
@@ -89,7 +89,7 @@ z_C = repmat(mu_C, 100, 1) + randn(100, 2) * r_C;
 
 % Class D
 mu_D = [15 10];
-sigma_D = [8 0; 8 8];
+sigma_D = [8 0; 0 8];
 r_D = chol(sigma_D);
 z_D = repmat(mu_D, 200, 1) + randn(200, 2) * r_D;
 [eig_vecs_D, eig_vals_D] = eig(sigma_D);
@@ -113,7 +113,7 @@ plot(mu_C(1), mu_C(2), 'gx');
 plot(mu_D(1), mu_D(2), 'go');
 plot(mu_E(1), mu_E(2), 'g+');
 
-legend('Class C', 'Class D', 'Class E', 'Mean of Class C', 'Mean of Class D', 'Mean of Class E');
+legend('Class C', 'Class D', 'Class E', 'Mean of Class C', 'Mean of Class D', 'Mean of Class E')
 
 plot_ellipse(mu_C(1), mu_C(2), theta_C, sqrt(eig_vals_C(2,2)), sqrt(eig_vals_C(1,1)), 'r');
 plot_ellipse(mu_D(1), mu_D(2), theta_D, sqrt(eig_vals_D(2,2)), sqrt(eig_vals_D(1,1)), 'b');
@@ -126,11 +126,15 @@ y2 = min([z_C(:,2);z_D(:,2);z_E(:,2)])-1:dx:max([z_C(:,2);z_D(:,2);z_E(:,2)])+1;
 
 % MED case
 MED2 = MED(X2, Y2, mu_C, mu_D, mu_E);
-contour(X2, Y2, MED2, 'Color', 'green', 'LineWidth', 2, 'HandleVisibility', 'off');
+% contour(X2, Y2, MED2, 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 % GED case
 GED2 = GED(X2, Y2, mu_C, sigma_C, mu_D, sigma_D, mu_E, sigma_E);
-contour(X2, Y2, GED2, 'Color', 'cyan', 'LineWidth', 2, 'HandleVisibility', 'off');
+% contour(X2, Y2, GED2, 'Color', 'cyan', 'LineWidth', 2, 'HandleVisibility', 'off');
+
+% MAP case
+MAP2 = MAP(X2, Y2, mu_C, sigma_C, 100, mu_D, sigma_D, 200, mu_E, sigma_E, 150);
+contour(X2, Y2, MAP2, 'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 hold off;
 
