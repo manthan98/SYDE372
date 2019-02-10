@@ -63,7 +63,9 @@ y = min([z_A(:,2);z_B(:,2)])-1:dx:max([z_A(:,2);z_B(:,2)])+1;
 
 % MED case
 MED1 = MED(X1, Y1, mu_A, mu_B);
-% contour(X1, Y1, MED1, [0, 0], 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibility', 'off');
+ contour(X1, Y1, MED1, [0, 0], 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibility', 'off');
+
+ConfusionMatr_MED = ConfMat(X1(1, 1), Y1(1, 1), MED1, z_A, z_B);
 
 % GED case
 GED1 = GED(X1, Y1, mu_A, sigma_A, mu_B, sigma_B);
@@ -79,7 +81,7 @@ NN1 = NN(X1, Y1, z_A, z_B);
 
 % KNN case
 KNN1 = KNN(X1, Y1, 5, z_A, z_B);
-contour(X1, Y1, KNN1, [0,0], 'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
+%contour(X1, Y1, KNN1, [0,0], 'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 %% CASE 2 %%
 figure;
