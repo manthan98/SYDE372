@@ -49,7 +49,7 @@ function [confusion_matrix, exp_error_rate] = ConfMat(starting_x, starting_y, Z,
         %|b but classified as a        classified correctly as b|
 
         confusion_matrix = [a_correct b_wrong;a_wrong b_correct];
-        exp_error_rate = (a_correct + b_correct) / (a_wrong + b_wrong);
+        exp_error_rate = (a_wrong + b_wrong) / (a_correct + b_correct);
     else
         a_correct = 0;
         a_pred_b = 0;
@@ -113,7 +113,7 @@ function [confusion_matrix, exp_error_rate] = ConfMat(starting_x, starting_y, Z,
         end
         
         confusion_matrix = [a_correct b_pred_a c_pred_a;a_pred_b b_correct c_pred_b;a_pred_c b_pred_c c_correct];
-        exp_error_rate = (a_correct + b_correct + c_correct) / (a_pred_b + a_pred_c + b_pred_a + b_pred_c + c_pred_a + c_pred_b);
+        exp_error_rate = (a_pred_b + a_pred_c + b_pred_a + b_pred_c + c_pred_a + c_pred_b)/(a_correct + b_correct + c_correct);
     end
 end
 
