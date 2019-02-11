@@ -10,12 +10,18 @@ r_A = chol(sigma_A); % Cholesky factorization to diagonalize the covariance matr
 z_A = repmat(mu_A, 200, 1) + randn(200, 2) * r_A; % Gaussian distribution for n = 200
 [eig_vecs_A, eig_vals_A] = eig(sigma_A); % Extract eigenvalues and eigenvectors
 
+% Test Data A for NN and KNN
+test_A = repmat(mu_A, 200, 1) + randn(200, 2) * r_A; % Gaussian distribution for n = 200
+
 % Class B
 mu_B = [10 15];
 sigma_B = [8 0; 0 4];
 r_B = chol(sigma_B);
 z_B = repmat(mu_B, 200, 1) + randn(200, 2) * r_B;
 [eig_vecs_B, eig_vals_B] = eig(sigma_B);
+
+% Test Data B For NN and KNN
+z_B = repmat(mu_B, 200, 1) + randn(200, 2) * r_B;
 
 figure;
 xlabel('x_1');
@@ -96,6 +102,9 @@ r_C = chol(sigma_C);
 z_C = repmat(mu_C, 100, 1) + randn(100, 2) * r_C;
 [eig_vecs_C, eig_vals_C] = eig(sigma_C);
 
+% Test Data C For NN and KNN
+test_C = repmat(mu_C, 100, 1) + randn(100, 2) * r_C;
+
 % Class D
 mu_D = [15 10];
 sigma_D = [8 0; 0 8];
@@ -103,12 +112,18 @@ r_D = chol(sigma_D);
 z_D = repmat(mu_D, 200, 1) + randn(200, 2) * r_D;
 [eig_vecs_D, eig_vals_D] = eig(sigma_D);
 
+% Test Data D For NN and KNN
+test_D = repmat(mu_D, 200, 1) + randn(200, 2) * r_D;
+
 % Class E
 mu_E = [10 5];
 sigma_E = [10 -5; -5 20];
 r_E = chol(sigma_E);
 z_E = repmat(mu_E, 150, 1) + randn(150, 2) * r_E;
 [eig_vecs_E, eig_vals_E] = eig(sigma_E);
+
+% Test Data E For NN and KNN
+test_E = repmat(mu_E, 150, 1) + randn(150, 2) * r_E;
 
 samples_C_scatter = scatter(z_C(:, 1), z_C(:, 2), 'rx');
 samples_D_scatter = scatter(z_D(:, 1), z_D(:, 2), 'bo');
