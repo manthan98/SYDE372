@@ -1,4 +1,4 @@
-function [confusion_matrix] = ConfMat(starting_x, starting_y, Z, z_A, z_B, z_C)
+function [confusion_matrix, exp_error_rate] = ConfMat(starting_x, starting_y, Z, z_A, z_B, z_C)
 
     %inputs are as follows:
     %starting_x - 
@@ -49,6 +49,7 @@ function [confusion_matrix] = ConfMat(starting_x, starting_y, Z, z_A, z_B, z_C)
         %|b but classified as a        classified correctly as b|
 
         confusion_matrix = [a_correct b_wrong;a_wrong b_correct];
+        exp_error_rate = (a_correct + b_correct) / (a_wrong + b_wrong);
     else
         a_correct = 0;
         a_pred_b = 0;
@@ -112,6 +113,7 @@ function [confusion_matrix] = ConfMat(starting_x, starting_y, Z, z_A, z_B, z_C)
         end
         
         confusion_matrix = [a_correct b_pred_a c_pred_a;a_pred_b b_correct c_pred_b;a_pred_c b_pred_c c_correct];
+        exp_error_rate = (a_correct + b_correct + c_correct) / (a_pred_b + a_pred_c + b_pred_a + b_pred_c + c_pred_a + c_pred_b);
     end
 end
 
