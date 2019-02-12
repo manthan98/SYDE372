@@ -1,6 +1,7 @@
 function [ points ] = KNN( X, Y, k, A, B, C )
-%UNTITLED4 Summary of this function goes here
-%   Detailed explanation goes here
+% Generates a KNN (K Nearest Neighbors) decision boundary
+% between classes in the form of an output matrix
+
     if nargin < 6
         points = zeros(size(X, 1), size(Y, 2));
         for i = 1:size(X, 1)
