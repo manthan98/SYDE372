@@ -67,7 +67,7 @@ y = min([z_A(:,2);z_B(:,2)])-1:dx:max([z_A(:,2);z_B(:,2)])+1;
 
 % MED case
 MED1 = MED(X1, Y1, mu_A, mu_B);
-contour(X1, Y1, MED1, [0, 0], 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibility', 'off');
+% contour(X1, Y1, MED1, [0, 0], 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 [Conf_Mat_MED1, exp_error_MED1] = ConfMat(X1(1, 1), Y1(1, 1), MED1, z_A, z_B)
 
@@ -148,7 +148,7 @@ y2 = min([z_C(:,2);z_D(:,2);z_E(:,2)])-1:dx:max([z_C(:,2);z_D(:,2);z_E(:,2)])+1;
 
 % MED case
 MED2 = MED(X2, Y2, mu_C, mu_D, mu_E);
-contour(X2, Y2, MED2, 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibility', 'off');
+% contour(X2, Y2, MED2, 'Color', 'magenta', 'LineWidth', 2, 'HandleVisibility', 'off');
 
 Conf_Mat_MED2 = ConfMat(X2(1, 1), Y2(1, 1), MED2, z_C, z_D, z_E)
 
