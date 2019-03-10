@@ -1,8 +1,8 @@
 function [ mu, sigma ] = Gaussian1D( x )
-%UNTITLED3 Summary of this function goes here
-%   Detailed explanation goes here
+% Computes the mean and variance parameters for a
+% set of samples assumed to be normally distributed.
 
-    size_x = size(x, 2);
+    size_x = length(x);
     mu = 0;
     sigma = 0;
     
