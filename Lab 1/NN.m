@@ -1,6 +1,7 @@
 function [ points ] = NN( X, Y, A, B, C)
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+% Generates a NN (Nearest Neighbors) decision boundary
+% between classes in the form of an output matrix
+
     if nargin < 5
         points = zeros(size(X, 1), size(Y, 2));
         for i = 1:size(X, 1)

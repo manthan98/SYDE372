@@ -3,6 +3,9 @@ function [ points ] = MAP( X, Y, mu_A, sigma_A, p_A, mu_B, sigma_B, p_B, mu_C, s
 % between classes in the form of an output matrix
 
     if nargin < 11
+        
+        % Two class case
+        
         points = zeros(size(X, 1), size(Y, 2));
 
         Q_0 = inv(sigma_A) - inv(sigma_B);
@@ -19,6 +22,8 @@ function [ points ] = MAP( X, Y, mu_A, sigma_A, p_A, mu_B, sigma_B, p_B, mu_C, s
         end
         
     else
+        
+        % Three class case
         
         MAP_AB = MAP(X, Y, mu_A, sigma_A, 100, mu_B, sigma_B, 200);
         MAP_BC = MAP(X, Y, mu_B, sigma_B, 200, mu_C, sigma_C, 150);

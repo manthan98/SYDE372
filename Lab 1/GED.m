@@ -1,9 +1,11 @@
 function [ points ] = GED( X, Y, mu_A, sigma_A, mu_B, sigma_B, mu_C, sigma_C )
 % Generates a GED (Generalized Euclidean Distance) decision boundary
-% between two classes in the form of an output matrix
+% between classes in the form of an output matrix
 
     if nargin < 8
-
+        
+        % Two class case
+        
         points = zeros(size(X, 1), size(Y, 2));
 
         for i = 1:size(X, 1)
@@ -13,6 +15,8 @@ function [ points ] = GED( X, Y, mu_A, sigma_A, mu_B, sigma_B, mu_C, sigma_C )
         end
         
     else
+        
+        % Three class case
         
         points = zeros(size(X, 1), size(Y, 2));
     
@@ -39,7 +43,8 @@ function [ points ] = GED( X, Y, mu_A, sigma_A, mu_B, sigma_B, mu_C, sigma_C )
         end
 
     end
-
+    
+    % Utility function that implements MED equation
     function y = GED_util(point)
         y = sqrt( ( (point - mu_A) * (inv(sigma_A)) * (point - mu_A)' ) ) - sqrt( ( (point - mu_B) * (inv(sigma_B)) * (point - mu_B)' ) );
     end
