@@ -1,6 +1,6 @@
 %% 2. Model Estimation 1-D Case
 
-%load necessary
+%load necessary data
 load('lab2_1.mat')
 
 % Setup a range of values for plotting purposes
@@ -123,4 +123,29 @@ hold on;
 plot(x, y2_b); % Estimated PDF
 
 legend('True p(x)', 'Estimated p(x)');
+
+%% 3. Model Estimation 2-D Case
+
+%load necessary data
+load('lab2_2.mat')
+
+% Step size - the smaller the value the smoother
+dx = 0.2;
+
+% Generate a matrix of values incremented by the step variable
+% ranging from smallest x/y values in the cluster data to the largest
+x = min([al(:,1);bl(:,1);cl(:,1)])-1:dx:max([al(:,1);bl(:,1);cl(:,1)])+1;
+y = min([al(:,2);bl(:,2);cl(:,2)])-1:dx:max([al(:,2);bl(:,2);cl(:,2)])+1;
+
+[X, Y] = meshgrid(x, y);
+
+% Parametric (ML) Estimation Using Gaussian Dist
+
+ML = ML2D(X, Y, al, bl, cl);
+figure;
+contour(X, Y, ML,'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
+
+
+
+
 
