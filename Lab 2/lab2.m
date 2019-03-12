@@ -144,6 +144,15 @@ y = min([al(:,2);bl(:,2);cl(:,2)])-1:dx:max([al(:,2);bl(:,2);cl(:,2)])+1;
 ML = ML2D(X, Y, al, bl, cl);
 figure;
 contour(X, Y, ML,'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
+hold on;
+samples_a_scatter = scatter(al(:, 1), al(:, 2), 'rx');
+samples_b_scatter = scatter(bl(:, 1), bl(:, 2), 'bo');
+samples_c_scatter = scatter(cl(:, 1), cl(:, 2), 'gx');
+
+legend('Cluster A', 'Cluster B', 'Cluster C');
+
+% Non Parametric Estimation Using Gaussian Parzen Window
+
 
 
 
