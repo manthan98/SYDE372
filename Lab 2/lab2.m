@@ -75,3 +75,52 @@ hold on;
 plot(x, unifpdf(x, unifa_b, unifb_b)); % Estimated PDF
 
 legend('True p(x)', 'Estimated p(x)');
+
+% Non Parametric Estimation - Parzen Window with sigma = 0.1
+
+% Variable a
+y1_a = ParzenGaus1d(a, 0.1, x);
+
+figure;
+plot(x, normpdf(x, 5, 1)); % True PDF
+
+hold on;
+plot(x, y1_a); % Estimated PDF
+
+legend('True p(x)', 'Estimated p(x)');
+
+% Variable b
+y1_b = ParzenGaus1d(b, 0.1, x);
+
+figure;
+plot(x, exppdf(x, 1)); % True PDF 
+
+hold on;
+plot(x, y1_b); % Estimated PDF
+
+legend('True p(x)', 'Estimated p(x)');
+
+% Non Parametric Estimation - Parzen Window with sigma = 0.4
+
+% Variable a
+y2_a = ParzenGaus1d(a, 0.4, x);
+
+figure;
+plot(x, normpdf(x, 5, 1)); % True PDF
+
+hold on;
+plot(x, y2_a); % Estimated PDF
+
+legend('True p(x)', 'Estimated p(x)');
+
+% Variable b
+y2_b = ParzenGaus1d(b, 0.4, x);
+
+figure;
+plot(x, exppdf(x, 1)); % True PDF 
+
+hold on;
+plot(x, y2_b); % Estimated PDF
+
+legend('True p(x)', 'Estimated p(x)');
+
