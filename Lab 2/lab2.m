@@ -139,22 +139,62 @@ y = min([al(:,2);bl(:,2);cl(:,2)])-1:dx:max([al(:,2);bl(:,2);cl(:,2)])+1;
 
 [X, Y] = meshgrid(x, y);
 
-% Parametric (ML) Estimation Using Gaussian Dist
+% Parametric (ML) Estimation Using Gaussian Distribution
 
 ML = ML2D(X, Y, al, bl, cl);
 figure;
-contour(X, Y, ML,'Color', 'black', 'LineWidth', 2, 'HandleVisibility', 'off');
-hold on;
-samples_a_scatter = scatter(al(:, 1), al(:, 2), 'rx');
-samples_b_scatter = scatter(bl(:, 1), bl(:, 2), 'bo');
-samples_c_scatter = scatter(cl(:, 1), cl(:, 2), 'gx');
+contour(X, Y, ML,'Color', 'black', 'LineWidth', 1, 'HandleVisibility', 'off');
 
+hold on;
+scatter(al(:, 1), al(:, 2), 'rx');
+
+hold on;
+scatter(bl(:, 1), bl(:, 2), 'bo');
+
+hold on;
+scatter(cl(:, 1), cl(:, 2), 'gx');
+
+xlabel('x_{1}');
+ylabel('x_{2}');
 legend('Cluster A', 'Cluster B', 'Cluster C');
 
 % Non Parametric Estimation Using Gaussian Parzen Window
 
+% Build Gaussian window
+h = 400;
+mu = [h/2 h/2]; % Mean
+sigma = [h 0; 0 h]; % Covariance
 
+[x1, x2] = meshgrid(1:1:400); % Simulate one window
+window = mvnpdf([x1(:) x2(:)], mu, sigma); % PDF for window
+window = reshape(window, length(x1), length(x2)); % Rearrange in columnar format
 
+% Define resolution boundaries
+res = [1 min(x) min(y) max(x) max(y)];
 
+[pa, xa, ya] = parzen(al, res, window);
+[pb, xb, yb] = parzen(bl, res, window);
+[pc, xc, yc] = parzen(cl, res, window);
 
+% Since xa = xb = xc and ya = yb = yc
+[X2, Y2] = meshgrid(xa, ya);
+
+% Generate the ML boundary
+ML_2 = ML2D_Parzen(X2, Y2, pa, pb, pc);
+
+figure;
+contour(X2, Y2, ML_2, 'Color', 'black', 'LineWidth', 1, 'HandleVisibility', 'off');
+
+hold on;
+scatter(al(:, 1), al(:, 2), 'rx');
+
+hold on;
+scatter(bl(:, 1), bl(:, 2), 'bo');
+
+hold on;
+scatter(cl(:, 1), cl(:, 2), 'gx');
+
+xlabel('x_{1}');
+ylabel('x_{2}');
+legend('Cluster A', 'Cluster B', 'Cluster C');
 
