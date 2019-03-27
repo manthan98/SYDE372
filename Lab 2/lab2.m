@@ -198,3 +198,43 @@ xlabel('x_{1}');
 ylabel('x_{2}');
 legend('Cluster A', 'Cluster B', 'Cluster C');
 
+
+%% 4. Sequential Discriminants
+%load necessary data
+load('lab2_3.mat')
+[sequentialDiscriminants1, nab1, nba1] = SequentialDiscriminants(a,b);
+[sequentialDiscriminants2, nab2, nba2] = SequentialDiscriminants(a,b);
+[sequentialDiscriminants3, nab3, nba3] = SequentialDiscriminants(a,b);
+
+points1 = ClassifySequentialDiscriminants(a,b,sequentialDiscriminants1, nab1, nba1);
+points2 = ClassifySequentialDiscriminants(a,b,sequentialDiscriminants2, nab2, nba2);
+points3 = ClassifySequentialDiscriminants(a,b,sequentialDiscriminants3, nab3, nba3);
+
+figure;
+hold on;
+contour(points1, [0,0]);
+scatter(a(:,1), a(:,2));
+scatter(b(:,1), b(:,2));
+xlabel('x_{1}');
+ylabel('x_{2}');
+legend('Classification Boundary','Class A', 'Class B');
+
+figure;
+hold on;
+contour(points2, [0,0]);
+scatter(a(:,1), a(:,2));
+scatter(b(:,1), b(:,2));
+xlabel('x_{1}');
+ylabel('x_{2}');
+legend('Classification Boundary','Class A', 'Class B');
+
+
+figure;
+hold on;
+contour(points3, [0,0]);
+scatter(a(:,1), a(:,2));
+scatter(b(:,1), b(:,2));
+xlabel('x_{1}');
+ylabel('x_{2}');
+legend('Classification Boundary','Class A', 'Class B');
+

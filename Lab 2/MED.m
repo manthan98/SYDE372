@@ -6,5 +6,4 @@ function [ points ] = MED( X, Y, mu_A, mu_B)
             points(i, j) = ( (val - mu_A) * (val - mu_A)' ) - ( (val - mu_B) * (val - mu_B)' );
         end
     end
-
 end
