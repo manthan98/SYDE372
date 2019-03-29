@@ -6,8 +6,8 @@ function [ mu, sigma ] = Gaussian1D( x )
     
     mu = (1 / size_x) * sum(x);
     
-    sigma = (1 / size_x) * sum((x - mu).^2);
-    sigma = sqrt( ( size_x / (size_x - 1) ) * sigma );
+    sigma = ( (1 / size_x) * sum((x - mu).^2) ) * ( size_x / (size_x - 1) );
+    sigma = sqrt( sigma );
 
 end
 

@@ -17,6 +17,8 @@ plot(x, normpdf(x, 5, 1)); % True PDF
 hold on;
 plot(x, normpdf(x, mu_a, sigma_a)); % Estimated PDF
 
+xlabel('x');
+ylabel('p(x)');
 legend('True p(x)', 'Estimated p(x)');
 
 % Variable b
@@ -28,6 +30,8 @@ plot(x, exppdf(x, 1)); % True PDF
 hold on;
 plot(x, normpdf(x, mu_b, sigma_b)); % Estimated PDF
 
+xlabel('x');
+ylabel('p(x)');
 legend('True p(x)', 'Estimated p(x)');
 
 % Parametric Estimation - Exponential
@@ -41,6 +45,8 @@ plot(x, normpdf(x, 5, 1)); % True PDF
 hold on;
 plot(x, exppdf(x, 1 / lambda_a)); % Estimated PDF
 
+xlabel('x');
+ylabel('p(x)');
 legend('True p(x)', 'Estimated p(x)');
 
 % Variable b
@@ -51,6 +57,10 @@ plot(x, exppdf(x, 1)); % True PDF
 
 hold on;
 plot(x, exppdf(x, 1 / lambda_b)); % Estimated PDF
+
+xlabel('x');
+ylabel('p(x)');
+legend('True p(x)', 'Estimated p(x)');
 
 % Parametric Estimation - Uniform
 
@@ -63,6 +73,8 @@ plot(x, normpdf(x, 5, 1)); % True PDF
 hold on;
 plot(x, unifpdf(x, unifa_a, unifb_a)); % Estimated PDF
 
+xlabel('x');
+ylabel('p(x)');
 legend('True p(x)', 'Estimated p(x)');
 
 % Variable b
@@ -74,6 +86,8 @@ plot(x, exppdf(x, 1)); % True PDF
 hold on;
 plot(x, unifpdf(x, unifa_b, unifb_b)); % Estimated PDF
 
+xlabel('x');
+ylabel('p(x)');
 legend('True p(x)', 'Estimated p(x)');
 
 % Non Parametric Estimation - Parzen Window with sigma = 0.1
@@ -87,6 +101,8 @@ plot(x, normpdf(x, 5, 1)); % True PDF
 hold on;
 plot(x, y1_a); % Estimated PDF
 
+xlabel('x');
+ylabel('p(x)');
 legend('True p(x)', 'Estimated p(x)');
 
 % Variable b
@@ -98,6 +114,8 @@ plot(x, exppdf(x, 1)); % True PDF
 hold on;
 plot(x, y1_b); % Estimated PDF
 
+xlabel('x');
+ylabel('p(x)');
 legend('True p(x)', 'Estimated p(x)');
 
 % Non Parametric Estimation - Parzen Window with sigma = 0.4
@@ -111,6 +129,8 @@ plot(x, normpdf(x, 5, 1)); % True PDF
 hold on;
 plot(x, y2_a); % Estimated PDF
 
+xlabel('x');
+ylabel('p(x)');
 legend('True p(x)', 'Estimated p(x)');
 
 % Variable b
@@ -122,6 +142,8 @@ plot(x, exppdf(x, 1)); % True PDF
 hold on;
 plot(x, y2_b); % Estimated PDF
 
+xlabel('x');
+ylabel('p(x)');
 legend('True p(x)', 'Estimated p(x)');
 
 %% 3. Model Estimation 2-D Case
