@@ -133,7 +133,7 @@ xlabel('x');
 ylabel('p(x)');
 legend('True p(x)', 'Estimated p(x)');
 
-% Variable b
+% % Variable b
 y2_b = ParzenGaus1d(b, 0.4, x);
 
 figure;
