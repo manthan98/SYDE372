@@ -15,3 +15,7 @@ for i = 1:10
     sigma(:,:,i) = cov(resf2(:,:,i));
 end
 
+f2Matrix = [];
+for i = 1:10
+    f2Matrix = [f2Matrix; resf2(:, :, i)];
+end

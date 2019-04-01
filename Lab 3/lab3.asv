@@ -1,7 +1,0 @@
-addpath('./data');
-load feat.mat;
-
-aplot(face);
-
-resf2 = SplitArrays(f2);
-fesf8 = SplitArrays

@@ -1,6 +1,5 @@
 function [ points ] = GED( X, Y, mu_A, sigma_A, mu_B, sigma_B, mu_C, sigma_C, mu_D, sigma_D, mu_E, sigma_E, mu_F, sigma_F, mu_G, sigma_G, mu_H, sigma_H, mu_I, sigma_I, mu_J, sigma_J )
-% Generates an GED classifier
-% in the form of an output matrix
+% Generates an GED classifier in the form of an output matrix
         
         points = zeros(size(X, 1), size(Y, 2));
     
