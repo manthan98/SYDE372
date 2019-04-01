@@ -19,3 +19,5 @@ f2Matrix = [];
 for i = 1:10
     f2Matrix = [f2Matrix; resf2(:, :, i)];
 end
+
+MICD_result = GED(f2Matrix, mu, sigma)

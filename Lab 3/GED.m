@@ -5,17 +5,18 @@ function [ results ] = GED( points, mu, sigma )
 % sigma - array of class covariances
         
         results = zeros(1, length(points));
-    
-        a = 1;
-        b = 2;
-        c = 3;
-        d = 4;
-        e = 5;
-        f = 6;
-        g = 7;
-        h = 8;
-        I = 9;
-        J = 10;
+        
+        
+%         class a = 1;
+%         class b = 2;
+%         class c = 3;
+%         class d = 4;
+%         class e = 5;
+%         class f = 6;
+%         class g = 7;
+%         class h = 8;
+%         class i = 9;
+%         class j = 10;
         
    
         for i = 1:length(points)
@@ -42,27 +43,9 @@ function [ results ] = GED( points, mu, sigma )
 %                 
 %                 geds = [ged_A ged_B ged_C ged_D ged_E ged_F ged_G ged_H ged_I ged_J];
 
-            if ged_A == min(geds)
-                results(i) = a;
-            elseif ged_B == min(geds)
-                results(i) = b;
-            elseif ged_C == min(geds)
-                results(i) = c;
-            elseif ged_D == min(geds)
-                results(i) = d;
-            elseif ged_E == min(geds)
-                results(i) = e;
-            elseif ged_F == min(geds)
-                results(i) = f;
-            elseif ged_G == min(geds)
-                results(i) = g;
-            elseif ged_H == min(geds)
-                results(i) = h;
-            elseif ged_I == min(geds)
-                results(i) = I;
-            else
-                results(i) = J;
-            end
+            [minVal pos] = min(geds);
+            
+            results(i) = pos;
         end
 
 end
