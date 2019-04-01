@@ -87,3 +87,7 @@ for i = 1:length(f32t_actual)
     classified_f32 = f32t_predicted(i);
     conf_mat_f32(truth_f32, classified_f32) = conf_mat_f8(truth_f32, classified_f32) + 1;
 end
+
+%Part 4
+cimage = GED_MATRIX(multf8, mu_f8, sigma_f8);
+imagesc(cimage);
