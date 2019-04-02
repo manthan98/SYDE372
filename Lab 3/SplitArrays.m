@@ -1,6 +1,6 @@
 function [res] = SplitArrays( arr )
-%UNTITLED Summary of this function goes here
-%   Detailed explanation goes here
+% Utility function that extracts the data point from feature matrix
+
     res1 = zeros(16,2);
     res2 = zeros(16,2);
     res3 = zeros(16,2);
@@ -12,6 +12,7 @@ function [res] = SplitArrays( arr )
     res9 = zeros(16,2);
     res10 = zeros(16,2);
     res = zeros(16,2,10);
+    
     for j = 1:length(arr)
        if arr(3,j) == 1
            res1(arr(4,j),:) = [arr(1,j), arr(2,j)];
@@ -35,6 +36,7 @@ function [res] = SplitArrays( arr )
            res10(arr(4,j),:) = [arr(1,j), arr(2,j)];
        end    
     end
+    
     res(:,:,1) = res1;
     res(:,:,2) = res2;
     res(:,:,3) = res3;
@@ -45,5 +47,6 @@ function [res] = SplitArrays( arr )
     res(:,:,8) = res8;
     res(:,:,9) = res9;
     res(:,:,10) = res10;
+    
 end
 
