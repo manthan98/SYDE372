@@ -70,6 +70,34 @@ f32t_actual = f32t(3, :);
 f32t_predicted = GED(f32tMatrix, mu_f32, sigma_f32);
 [conf_mat_f32, error_rates_f32] = generateConfusionMatrix(f32t_actual, f32t_predicted);
 
+%generate plot required for part 5
+f32Matrix = [];
+for i = 1:10
+    f32Matrix = [f32Matrix; resf32(:, :, i)];
+end
+f32_predicted = GED(f32Matrix, mu_f32, sigma_f32);
+plot_matrix = f32;
+disp(length(plot_matrix));
+for i = length(plot_matrix)
+    feats(3, i) = f32_predicted(i);
+end
+
+% plot
+figure
+hold on
+colours = {'Blue', 'Cyan', 'Green', 'Magenta', 'Red', [0 0.4470 0.7410], [0.9290 0.6940 0.1250], [0.4940 0.1840 0.5560], [0.3010 0.7450 0.9330], [0.4660 0.6740 0.1880]};
+for i = 1:10
+    logicals = feats(3,:) == i;
+    classPoints = feats(:,logicals);
+    x = classPoints(1,:);
+    y = classPoints(2,:);
+    scatter(x,y,'MarkerFaceColor',colours{i},'MarkerEdgeColor', 'none');
+end
+legend('Class 1', 'Class 2', 'Class 3', 'Class 4', 'Class 5', 'Class 6', 'Class 7', 'Class 8', 'Class 9', 'Class 10','Location', 'northeastoutside')
+xlabel('x_{1}');
+ylabel('x_{2}');
+
+
 %% Image Classification and Segmentation
 
 % Multf8
