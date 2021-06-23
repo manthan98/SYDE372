@@ -1,2 +1,3 @@
 # SYDE372
-Introduction to Pattern Recognition
+
+SYDE 372: Introduction to Pattern Recognition - University of Waterloo Winter 2019
